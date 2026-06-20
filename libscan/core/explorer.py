@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..python.scanner import PythonScanner
+from ..scanners.python_scanner import PythonScanner
 
 class Explorer:
     """High-level interface for scanning libraries."""
