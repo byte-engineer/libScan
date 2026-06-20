@@ -1,0 +1,39 @@
+libScan/
+│
+├── main.py
+├── libscan/
+├───|__init__.py
+│   ├── core/
+│   │   ├── __init__.py      ⭐
+│   │   ├── node.py          ⭐
+│   │   ├── node_kind.py     ⭐
+│   │   ├── metadata.py      ⭐
+│   │   ├── base_scanner.py  ⭐
+│   │   ├── explorer.py      ⭐
+│   │   └── base_renderer.py
+│   │
+│   ├── scanners/
+│   │   ├── __init__.py
+│   │   └── python_scanner.py
+│   │
+│   └── renderers/
+│       └── graphviz.py
+│
+├── output/
+└── tests/
+
+# wanted beheavior
+import numpy
+tree = Scanner().scan(numpy)
+python main.py numpy --depth 3 --output numpy.svg
+
+
+Kind	    Shape	    Color
+Package	    Folder	    Gold
+Module	    Box	        Sky Blue
+Class	    Component	Orange
+Function	Ellipse	    Light Green
+Method	    Ellipse	    Pale Green
+Property	Note	    Pink
+Variable	Plain	    White
+
