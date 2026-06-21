@@ -1,19 +1,16 @@
 from libscan import Explorer
-
-
-def print_tree(node, indent=0):
-    print("    " * indent + f"{node.kind.name}: {node.name}")
-
-    for child in node.children:
-        print_tree(child, indent + 1)
+from libscan.renderers.graphviz_renderer import GraphvizRenderer
 
 
 def main():
     explorer = Explorer()
 
-    tree = explorer.scan("math")
+    for mod in ["libscan", "math", "random", "pathlib"]:
+        tree = explorer.scan(mod, max_depth=4)
+        renderer = GraphvizRenderer()
+        output = renderer.render(tree, f"output/{mod}_tree", format="svg")
 
-    print_tree(tree)
+        print("Generated:", output)
 
 
 if __name__ == "__main__":
